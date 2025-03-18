@@ -11,16 +11,25 @@ dependencies {
 
 	// Spring Boot dependencies
 	implementation(local.springboot.starter)
-	implementation(local.springboot.starter.web)
+	implementation(local.springboot.starter.webflux)
 
-	// SpringDoc for swagger docs supporting Spring Web MVC
-	implementation(local.springdoc.openapi.starter.webmvc)
+	// Kotlin Coroutines
+	// Reactor is required for Spring Boot controller suspend endpoints
+	implementation(local.kotlin.coroutines)
+	implementation(local.kotlin.coroutines.reactor)
+	testImplementation(local.kotlin.coroutines.test)
+
+	// SpringDoc for swagger docs supporting Spring Webflux
+	implementation(local.springdoc.openapi.starter.webflux)
 
 	// Liquibase for database migrations
 	implementation(local.liquibase.core)
 
 	// H2 in-memory database
 	implementation(local.h2database)
+
+	// R2DBC driver for reactive database access for H2
+	implementation(local.h2r2dbc)
 
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)

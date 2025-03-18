@@ -1,5 +1,5 @@
 [versions]
-exposed = "0.59.0"
+coroutines = "1.10.1"
 h2database = "2.3.232"
 jackson = "2.18.3"
 junitPlatformLauncher = "1.11.4"
@@ -8,19 +8,26 @@ liquibase = "4.31.1"
 springboot = "3.4.3"
 springDependencyPlugin = "1.1.6"
 springdoc = "2.8.5"
+r2dbc-h2 = "1.0.0.RELEASE"
 
 [libraries]
 
 # Spring Boot libraries
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
-springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-starter-r2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+springboot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springboot" }
+
+# Kotlin Coroutines
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlin-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "coroutines" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
 # SpringDoc provides swagger docs with support for Spring Web MVC
-springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+springdoc-openapi-starter-webflux = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springdoc" }
 
-# JetBrains Exposed provides a lightweight Kotlin SQL library
-exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
+# R2DBC driver for reactive database access for H2
+h2r2dbc = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbc-h2" }
 
 # H2 for in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
@@ -32,8 +39,8 @@ liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liqui
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test libraries
-kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 [plugins]
 springboot = { id = "org.springframework.boot", version.ref = "springboot" }
