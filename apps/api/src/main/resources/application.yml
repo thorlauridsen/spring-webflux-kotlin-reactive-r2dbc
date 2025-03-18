@@ -1,0 +1,9 @@
+spring:
+  liquibase:
+    enabled: true
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /

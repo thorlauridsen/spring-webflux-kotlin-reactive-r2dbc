@@ -1,0 +1,40 @@
+[versions]
+exposed = "0.59.0"
+h2database = "2.3.232"
+jackson = "2.18.3"
+junitPlatformLauncher = "1.11.4"
+kotlin = "2.1.10"
+liquibase = "4.31.1"
+springboot = "3.4.3"
+springDependencyPlugin = "1.1.6"
+springdoc = "2.8.5"
+
+[libraries]
+
+# Spring Boot libraries
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+
+# SpringDoc provides swagger docs with support for Spring Web MVC
+springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+
+# JetBrains Exposed provides a lightweight Kotlin SQL library
+exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
+
+# H2 for in-memory database
+h2database = { module = "com.h2database:h2", version.ref = "h2database" }
+
+# Liquibase for managing database changelogs
+liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+
+# FasterXML Jackson module for Kotlin support
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+
+# Test libraries
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+
+[plugins]
+springboot = { id = "org.springframework.boot", version.ref = "springboot" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }
