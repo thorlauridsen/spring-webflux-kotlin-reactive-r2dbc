@@ -1,4 +1,18 @@
 databaseChangeLog:
+  # This enables the uuid-ossp extension in PostgreSQL
+  # which is required for the uuid_generate_v4() function.
+  - changeSet:
+      id: enable-uuid-ossp-postgres
+      author: thorlauridsen
+      preConditions:
+        - onFail: MARK_RAN
+        - dbms:
+            type: postgresql
+      changes:
+        - sql:
+            sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+  # Create the customer table with a UUID primary key
   - changeSet:
       id: create-customer-table
       author: thorlauridsen
@@ -10,9 +24,40 @@ databaseChangeLog:
                   name: id
                   type: UUID
                   constraints:
+                    nullable: false
                     primaryKey: true
               - column:
                   name: mail
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
+
+  # Add a default value which generates a UUID
+  # for the id column if the database is PostgreSQL
+  - changeSet:
+      id: alter-default-uuid
+      author: thorlauridsen
+      changes:
+        - addDefaultValue:
+            columnName: id
+            tableName: customer
+            defaultValueComputed: uuid_generate_v4()
+      preConditions:
+        - onFail: MARK_RAN
+        - dbms:
+            type: postgresql
+
+  # Add a default value which generates a UUID
+  # for the id column if the database is H2
+  - changeSet:
+      id: alter-default-uuid-h2
+      author: thorlauridsen
+      changes:
+        - addDefaultValue:
+            columnName: id
+            tableName: customer
+            defaultValueComputed: RANDOM_UUID()
+      preConditions:
+        - onFail: MARK_RAN
+        - dbms:
+            type: h2
