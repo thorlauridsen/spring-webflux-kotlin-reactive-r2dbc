@@ -1,13 +1,12 @@
-# Spring Boot Kotlin sample project
+# Spring WebFlux + Spring Data R2DBC + Kotlin Coroutines
 
 This is a sample project for how you can set up a 
 [multi-project Gradle build](https://docs.gradle.org/current/userguide/multi_project_builds.html) 
-using [Spring Boot](https://github.com/spring-projects/spring-boot) 
-and [Kotlin](https://github.com/JetBrains/kotlin).
-You can copy or fork this project to quickly set up a 
-new project with the same multi-project Gradle structure.
-
-This project consists of a runnable REST API using Spring Boot Web MVC.
+using
+[Spring WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux.html)
+, [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc)
+and [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+to create a REST API with reactive database interactions.
 
 ## Usage
 Clone the project to your local machine, go to the root directory and use:
@@ -23,11 +22,13 @@ to view the Swagger documentation.
 - [JDK21](https://openjdk.org/projects/jdk/21/) - Latest JDK with long-term support 
 - [Kotlin](https://github.com/JetBrains/kotlin) - Programming language with Java interoperability
 - [Gradle](https://github.com/gradle/gradle) - Used for compilation, building, testing and dependency management
-- [Spring Boot (Web MVC)](https://github.com/spring-projects/spring-boot) - For creating REST APIs
+- [Spring WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux.html) - For creating reactive REST APIs
+- [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) - For reactive database interactions
+- [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) - For asynchronous programming
 - [Jackson](https://github.com/FasterXML/jackson-module-kotlin) - Provides a Kotlin module for automatic JSON serialization and deserialization
-- [SpringDoc](https://github.com/springdoc/springdoc-openapi) - Provides Swagger documentation for REST APIs
-- [Exposed](https://github.com/JetBrains/Exposed) - Lightweight Kotlin SQL library to interact with a database
+- [Springdoc](https://github.com/springdoc/springdoc-openapi) - Provides Swagger documentation for REST APIs
 - [H2database](https://github.com/h2database/h2database) - Provides an in-memory database for simple local testing
+- [R2DBC-H2](https://github.com/r2dbc/r2dbc-h2) - R2DBC driver for H2 database
 - [Liquibase](https://github.com/liquibase/liquibase) - Used to manage database schema changelogs
 
 ## Gradle best practices for Kotlin
@@ -169,3 +170,8 @@ persistence
 
 model has no dependencies
 ```
+
+## Meta
+
+This project has been created with the sample code structure from
+[thorlauridsen/spring-boot-kotlin-sample](https://github.com/thorlauridsen/spring-boot-kotlin-sample)
