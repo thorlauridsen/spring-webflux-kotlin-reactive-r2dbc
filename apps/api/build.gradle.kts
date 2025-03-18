@@ -29,7 +29,7 @@ dependencies {
 	implementation(local.h2database)
 
 	// R2DBC driver for reactive database access for H2
-	implementation(local.h2r2dbc)
+	implementation(local.r2dbch2)
 
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)

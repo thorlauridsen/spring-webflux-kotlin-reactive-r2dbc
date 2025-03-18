@@ -27,7 +27,7 @@ kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-te
 springdoc-openapi-starter-webflux = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springdoc" }
 
 # R2DBC driver for reactive database access for H2
-h2r2dbc = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbc-h2" }
+r2dbch2 = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbc-h2" }
 
 # H2 for in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
