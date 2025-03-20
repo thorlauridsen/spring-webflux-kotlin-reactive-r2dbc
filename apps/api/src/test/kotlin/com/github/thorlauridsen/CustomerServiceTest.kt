@@ -9,6 +9,7 @@ import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
@@ -25,9 +26,11 @@ class CustomerServiceTest(
 
     @Test
     fun `get customer - random id - returns not found`() {
-        val id = UUID.randomUUID()
-        assertThrows<CustomerNotFoundException> {
-            customerService.find(id)
+        runTest {
+            val id = UUID.randomUUID()
+            assertThrows<CustomerNotFoundException> {
+                customerService.find(id)
+            }
         }
     }
 
@@ -39,13 +42,15 @@ class CustomerServiceTest(
         ]
     )
     fun `save customer - get customer - success`(mail: String) {
-        val customer = CustomerInput(mail)
+        runTest {
+            val customer = CustomerInput(mail)
 
-        val savedCustomer = customerService.save(customer)
-        assertCustomer(savedCustomer, mail)
+            val savedCustomer = customerService.save(customer)
+            assertCustomer(savedCustomer, mail)
 
-        val fetchedCustomer = customerService.find(savedCustomer.id)
-        assertCustomer(fetchedCustomer, mail)
+            val fetchedCustomer = customerService.find(savedCustomer.id)
+            assertCustomer(fetchedCustomer, mail)
+        }
     }
 
     /**
