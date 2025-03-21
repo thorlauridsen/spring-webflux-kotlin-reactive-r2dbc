@@ -1,4 +1,4 @@
-package com.github.thorlauridsen
+package com.github.thorlauridsen.persistence
 
 import java.util.UUID
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
