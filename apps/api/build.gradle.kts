@@ -23,13 +23,13 @@ dependencies {
 	implementation(local.springdoc.openapi.starter.webflux)
 
 	// Liquibase for database migrations
-	implementation(local.liquibase.core)
+	runtimeOnly(local.liquibase.core)
 
 	// H2 in-memory database
-	implementation(local.h2database)
+	runtimeOnly(local.h2database)
 
 	// R2DBC driver for reactive database access for H2
-	implementation(local.r2dbch2)
+	runtimeOnly(local.r2dbch2)
 
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)
