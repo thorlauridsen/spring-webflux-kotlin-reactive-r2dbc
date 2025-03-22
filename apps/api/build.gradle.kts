@@ -31,6 +31,12 @@ dependencies {
 	// R2DBC driver for reactive database access for PostgreSQL
 	runtimeOnly(local.r2dbc.postgres)
 
+	// H2 in-memory database driver for Liquibase
+	runtimeOnly(local.h2database)
+
+	// PostgreSQL database driver for Liquibase
+	runtimeOnly(local.postgres)
+
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)
 
