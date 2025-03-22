@@ -1,9 +1,11 @@
 [versions]
 coroutines = "1.10.1"
+h2database = "2.3.232"
 jackson = "2.18.3"
 junitPlatformLauncher = "1.11.4"
 kotlin = "2.1.10"
 liquibase = "4.31.1"
+postgres = "42.7.5"
 r2dbcH2 = "1.0.0.RELEASE"
 r2dbcPostgres = "1.0.7.RELEASE"
 springboot = "3.4.3"
@@ -11,6 +13,9 @@ springDependencyPlugin = "1.1.6"
 springdoc = "2.8.5"
 
 [libraries]
+# H2 for in-memory database
+h2database = { module = "com.h2database:h2", version.ref = "h2database" }
+
 # FasterXML Jackson module for Kotlin support
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
@@ -25,6 +30,9 @@ kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-te
 
 # Liquibase for managing database changelogs
 liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+
+# PostgreSQL for live database
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 # R2DBC driver for reactive database access for H2
 r2dbc-h2 = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbcH2" }

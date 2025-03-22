@@ -17,9 +17,12 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sample-db
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      R2DBC_URL: r2dbc:postgresql://postgres:5432/sample-db
+      R2DBC_USERNAME: postgres
+      R2DBC_PASSWORD: postgres
+      LIQUIBASE_URL: jdbc:postgresql://postgres:5432/sample-db
+      LIQUIBASE_USER: postgres
+      LIQUIBASE_PASSWORD: postgres
     image: spring-webflux-kotlin-reactive:latest
     ports:
       - "8080:8080"
