@@ -13,6 +13,14 @@ Clone the project to your local machine, go to the root directory and use:
 ```
 ./gradlew api:bootRun
 ```
+This will start the project using an in-memory H2 database.
+
+### Docker Compose
+To run the project with [Docker Compose](https://docs.docker.com/compose/), go to the root directory and use:
+```
+docker-compose up -d
+```
+This will launch the project using a PostgreSQL database.
 
 ### Swagger Documentation
 Once the system is running, navigate to http://localhost:8080/ 
@@ -27,6 +35,7 @@ to view the Swagger documentation.
 - [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) - For asynchronous programming
 - [Jackson](https://github.com/FasterXML/jackson-module-kotlin) - Provides a Kotlin module for automatic JSON serialization and deserialization
 - [Springdoc](https://github.com/springdoc/springdoc-openapi) - Provides Swagger documentation for REST APIs
+- [PostgreSQL](https://www.postgresql.org/) - Open-source relational database
 - [H2database](https://github.com/h2database/h2database) - Provides an in-memory database for simple local testing
 - [R2DBC-H2](https://github.com/r2dbc/r2dbc-h2) - R2DBC driver for H2 database
 - [Liquibase](https://github.com/liquibase/liquibase) - Used to manage database schema changelogs
