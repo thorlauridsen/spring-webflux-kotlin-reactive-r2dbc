@@ -2,6 +2,7 @@ package com.github.thorlauridsen.persistence
 
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
+import com.github.thorlauridsen.model.ICustomerRepo
 import java.util.UUID
 import org.springframework.stereotype.Repository
 

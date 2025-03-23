@@ -2,7 +2,7 @@ package com.github.thorlauridsen.service
 
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
-import com.github.thorlauridsen.persistence.ICustomerRepo
+import com.github.thorlauridsen.model.ICustomerRepo
 import com.github.thorlauridsen.exception.CustomerNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
