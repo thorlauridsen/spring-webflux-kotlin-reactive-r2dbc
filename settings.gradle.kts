@@ -1,4 +1,4 @@
-rootProject.name = "sample"
+rootProject.name = "spring-webflux-kotlin-reactive-r2dbc"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
