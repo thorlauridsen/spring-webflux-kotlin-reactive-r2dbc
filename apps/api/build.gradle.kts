@@ -42,6 +42,9 @@ dependencies {
 
 	// Test dependencies
 	testImplementation(local.springboot.starter.test)
+	testImplementation(local.springboot.testcontainers)
+	testImplementation(local.testcontainers.postgresql)
+	testImplementation(local.testcontainers.r2dbc)
 	testImplementation(local.kotlin.test.junit5)
 	testRuntimeOnly(local.junit.platform.launcher)
 }
