@@ -11,6 +11,7 @@ r2dbcPostgres = "1.0.7.RELEASE"
 springboot = "3.5.5"
 springDependencyPlugin = "1.1.7"
 springdoc = "2.8.11"
+testcontainers = "1.21.3"
 
 [libraries]
 # H2 for in-memory database
@@ -45,6 +46,11 @@ springboot-starter = { module = "org.springframework.boot:spring-boot-starter", 
 springboot-starter-r2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 springboot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springboot" }
+springboot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springboot" }
+
+# Testcontainers for running PostgreSQL in tests
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+testcontainers-r2dbc = { module = "org.testcontainers:r2dbc", version.ref = "testcontainers" }
 
 # Springdoc provides swagger docs with support for Spring Web MVC
 springdoc-openapi-starter-webflux = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springdoc" }

@@ -12,15 +12,20 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.context.annotation.Import
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
 
 /**
  * Test class for testing the CustomerController.
  * The test methods use [WebTestClient] to make requests to the controller endpoints.
  * [WebTestClient] has support for testing reactive web applications (Spring Boot Webflux).
+ * A local Docker instance is required to run the tests as Testcontainers is used.
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("postgres")
 @AutoConfigureWebTestClient
+@Import(TestContainerConfig::class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerControllerTest(
     @Autowired private val client: WebTestClient
 ) {
