@@ -10,7 +10,7 @@ r2dbcH2 = "1.0.0.RELEASE"
 r2dbcPostgres = "1.0.7.RELEASE"
 springboot = "3.5.5"
 springDependencyPlugin = "1.1.7"
-springdoc = "2.8.12"
+springdoc = "2.8.13"
 testcontainers = "1.21.3"
 
 [libraries]
