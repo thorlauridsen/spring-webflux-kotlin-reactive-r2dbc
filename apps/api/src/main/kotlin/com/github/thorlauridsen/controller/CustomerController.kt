@@ -4,10 +4,10 @@ import com.github.thorlauridsen.dto.CustomerDto
 import com.github.thorlauridsen.dto.CustomerInputDto
 import com.github.thorlauridsen.dto.toDto
 import com.github.thorlauridsen.service.CustomerService
-import org.springframework.http.ResponseEntity
-import org.springframework.stereotype.Controller
 import java.net.URI
 import java.util.UUID
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * This REST controller consists of endpoints for:
@@ -20,7 +20,7 @@ import java.util.UUID
  *
  * @param customerService [CustomerService] service layer.
  */
-@Controller
+@RestController
 class CustomerController(private val customerService: CustomerService) : ICustomerController {
 
     /**

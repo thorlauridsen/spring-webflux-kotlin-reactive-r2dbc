@@ -4,15 +4,15 @@ import com.github.thorlauridsen.dto.ErrorDto
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.reactive.result.method.annotation.ResponseEntityExceptionHandler
 
 /**
  * Controller advisor for handling exceptions.
  * This ensures that whenever an exception is thrown, a proper error response is returned to the client.
  */
-@ControllerAdvice
+@RestControllerAdvice
 class ControllerAdvisor : ResponseEntityExceptionHandler() {
 
     private val logger = LoggerFactory.getLogger(ControllerAdvisor::class.java)
