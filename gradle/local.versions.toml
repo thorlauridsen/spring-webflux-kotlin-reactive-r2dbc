@@ -11,7 +11,7 @@ r2dbcPostgres = "1.1.1.RELEASE"
 springboot = "3.5.8"
 springDependencyPlugin = "1.1.7"
 springdoc = "2.8.14"
-testcontainers = "1.21.3"
+testcontainers = "1.21.4"
 
 [libraries]
 # H2 for in-memory database
