@@ -1,6 +1,6 @@
 [versions]
 coroutines = "1.10.2"
-h2database = "2.3.232"
+h2database = "2.4.240"
 jackson = "2.20.1"
 junitPlatformLauncher = "1.12.2"
 kotlin = "2.3.0"
