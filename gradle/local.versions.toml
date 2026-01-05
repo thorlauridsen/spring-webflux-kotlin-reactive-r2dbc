@@ -2,14 +2,14 @@
 coroutines = "1.10.2"
 h2database = "2.3.232"
 jackson = "2.20.1"
-junitPlatformLauncher = "1.12.2"
+junit-platform-launcher = "1.12.2"
 kotlin = "2.3.0"
 liquibase = "5.0.1"
 postgres = "42.7.8"
-r2dbcH2 = "1.0.0.RELEASE"
-r2dbcPostgres = "1.1.1.RELEASE"
+r2dbc-h2 = "1.0.0.RELEASE"
+r2dbc-postgres = "1.1.1.RELEASE"
 springboot = "3.5.9"
-springDependencyPlugin = "1.1.7"
+spring-dependency-plugin = "1.1.7"
 springdoc = "2.8.15"
 testcontainers = "1.21.4"
 
@@ -21,7 +21,7 @@ h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test libraries
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 # Kotlin Coroutines
@@ -36,10 +36,10 @@ liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liqui
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 # R2DBC driver for reactive database access for H2
-r2dbc-h2 = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbcH2" }
+r2dbc-h2 = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbc-h2" }
 
 # R2DBC driver for reactive database access for PostgreSQL
-r2dbc-postgres = { module = "org.postgresql:r2dbc-postgresql", version.ref = "r2dbcPostgres" }
+r2dbc-postgres = { module = "org.postgresql:r2dbc-postgresql", version.ref = "r2dbc-postgres" }
 
 # Spring Boot libraries
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
@@ -57,4 +57,4 @@ springdoc-openapi-starter-webflux = { module = "org.springdoc:springdoc-openapi-
 
 [plugins]
 springboot = { id = "org.springframework.boot", version.ref = "springboot" }
-spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "spring-dependency-plugin" }
