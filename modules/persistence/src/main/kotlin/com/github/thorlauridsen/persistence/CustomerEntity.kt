@@ -3,6 +3,7 @@ package com.github.thorlauridsen.persistence
 import com.github.thorlauridsen.model.Customer
 import java.util.UUID
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 
 /**
@@ -24,7 +25,10 @@ import org.springframework.data.relational.core.mapping.Table
 @Table("customer")
 data class CustomerEntity(
     @Id
+    @Column("id")
     val id: UUID? = null,
+
+    @Column("mail")
     val mail: String,
 ) {
 

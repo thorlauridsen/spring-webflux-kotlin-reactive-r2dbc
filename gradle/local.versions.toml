@@ -1,24 +1,19 @@
 [versions]
 coroutines = "1.10.2"
 h2database = "2.4.240"
-jackson = "2.21.1"
-junit-platform-launcher = "1.12.2"
+junit-platform-launcher = "6.0.1"
 kotlin = "2.3.10"
-liquibase = "5.0.2"
 postgres = "42.7.10"
 r2dbc-h2 = "1.1.0.RELEASE"
 r2dbc-postgres = "1.1.1.RELEASE"
-springboot = "3.5.11"
+springboot = "4.0.3"
 spring-dependency-plugin = "1.1.7"
-springdoc = "2.8.16"
+springdoc = "3.0.1"
 testcontainers = "1.21.4"
 
 [libraries]
 # H2 for in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
-
-# FasterXML Jackson module for Kotlin support
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test libraries
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
@@ -29,8 +24,8 @@ kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", 
 kotlin-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "coroutines" }
 kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
-# Liquibase for managing database changelogs
-liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+# Kotlin Reflection
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 
 # PostgreSQL for live database
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
@@ -43,12 +38,15 @@ r2dbc-postgres = { module = "org.postgresql:r2dbc-postgresql", version.ref = "r2
 
 # Spring Boot libraries
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-starter-liquibase = { module = "org.springframework.boot:spring-boot-starter-liquibase", version.ref = "springboot" }
 springboot-starter-r2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 springboot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springboot" }
 springboot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springboot" }
+springboot-webtestclient = { module = "org.springframework.boot:spring-boot-webtestclient", version.ref = "springboot" }
 
 # Testcontainers for running PostgreSQL in tests
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
 testcontainers-r2dbc = { module = "org.testcontainers:r2dbc", version.ref = "testcontainers" }
 

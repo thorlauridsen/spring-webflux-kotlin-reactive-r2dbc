@@ -11,6 +11,7 @@ dependencies {
 
 	// Spring Boot dependencies
 	implementation(local.springboot.starter)
+	implementation(local.springboot.starter.liquibase)
 	implementation(local.springboot.starter.webflux)
 
 	// Kotlin Coroutines
@@ -22,8 +23,8 @@ dependencies {
 	// Springdoc for swagger docs supporting Spring WebFlux
 	implementation(local.springdoc.openapi.starter.webflux)
 
-	// Liquibase for database migrations
-	runtimeOnly(local.liquibase.core)
+	// Kotlin Reflection
+	runtimeOnly(local.kotlin.reflect)
 
 	// R2DBC driver for reactive database access for H2
 	runtimeOnly(local.r2dbc.h2)
@@ -37,12 +38,11 @@ dependencies {
 	// PostgreSQL database driver for Liquibase
 	runtimeOnly(local.postgres)
 
-	// FasterXML Jackson module for Kotlin support
-	implementation(local.jackson.module.kotlin)
-
 	// Test dependencies
 	testImplementation(local.springboot.starter.test)
 	testImplementation(local.springboot.testcontainers)
+	testImplementation(local.springboot.webtestclient)
+	testImplementation(local.testcontainers.junit.jupiter)
 	testImplementation(local.testcontainers.postgresql)
 	testImplementation(local.testcontainers.r2dbc)
 	testImplementation(local.kotlin.test.junit5)
