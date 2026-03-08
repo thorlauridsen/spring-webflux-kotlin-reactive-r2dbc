@@ -14,6 +14,11 @@ import java.util.UUID
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
+import org.springframework.test.context.ActiveProfiles
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 
 /**
  * Test class for testing the [CustomerService].
@@ -21,10 +26,19 @@ import org.junit.jupiter.params.provider.ValueSource
  * This ensures that Spring can automatically inject [CustomerService] with a CustomerRepo
  * @param customerService The [CustomerService] to test.
  */
+@ActiveProfiles("postgres")
 @SpringBootTest
+@Testcontainers
 class CustomerServiceTest(
     @Autowired private val customerService: CustomerService,
 ) {
+
+    companion object {
+        @Container
+        @ServiceConnection
+        @Suppress("unused")
+        val postgres = PostgreSQLContainer("postgres:18")
+    }
 
     @Test
     fun `get customer - random id - returns not found`() {

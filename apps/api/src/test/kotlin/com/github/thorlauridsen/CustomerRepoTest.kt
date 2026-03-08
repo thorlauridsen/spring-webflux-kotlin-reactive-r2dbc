@@ -11,6 +11,11 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
+import org.springframework.test.context.ActiveProfiles
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 import java.util.UUID
 
 /**
@@ -18,10 +23,19 @@ import java.util.UUID
  * This class uses the @SpringBootTest annotation to spin up a Spring Boot instance.
  * @param customerRepo The [ICustomerRepo] to test.
  */
+@ActiveProfiles("postgres")
 @SpringBootTest
+@Testcontainers
 class CustomerRepoTest(
     @Autowired private val customerRepo: ICustomerRepo,
 ) {
+
+    companion object {
+        @Container
+        @ServiceConnection
+        @Suppress("unused")
+        val postgres = PostgreSQLContainer("postgres:18")
+    }
 
     @ParameterizedTest
     @ValueSource(

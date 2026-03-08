@@ -10,11 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import java.util.UUID
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Import
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
+import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 
 /**
  * Test class for testing the CustomerController.
@@ -24,11 +27,18 @@ import org.springframework.test.web.reactive.server.WebTestClient
  */
 @ActiveProfiles("postgres")
 @AutoConfigureWebTestClient
-@Import(TestContainerConfig::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Testcontainers
 class CustomerControllerTest(
     @Autowired private val client: WebTestClient
 ) {
+
+    companion object {
+        @Container
+        @ServiceConnection
+        @Suppress("unused")
+        val postgres = PostgreSQLContainer("postgres:18")
+    }
 
     @Test
     fun `get customer - random id - returns not found`() {

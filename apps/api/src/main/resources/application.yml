@@ -1,13 +1,13 @@
 spring:
   r2dbc:
     # Use the environment variable R2DBC_URL if provided, otherwise default to H2
-    url: ${R2DBC_URL:r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL}
+    url: ${R2DBC_URL:r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE}
     username: ${R2DBC_USERNAME:sa}
     password: ${R2DBC_PASSWORD:}
   liquibase:
     enabled: true
     # Note that we use jdbc for Liquibase and r2dbc for the application
-    url: ${LIQUIBASE_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL}
+    url: ${LIQUIBASE_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE}
     user: ${LIQUIBASE_USER:sa}
     password: ${LIQUIBASE_PASSWORD:}
 springdoc:
