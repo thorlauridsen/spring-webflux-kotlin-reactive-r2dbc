@@ -1,5 +1,5 @@
 [versions]
-coroutines = "1.10.2"
+coroutines = "1.11.0"
 h2database = "2.4.240"
 junit-platform-launcher = "6.1.2"
 kotlin = "2.4.10"
